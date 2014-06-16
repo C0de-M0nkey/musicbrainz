@@ -43,4 +43,14 @@ describe MusicBrainz::Release do
     releases.first.title.should == "Kveikur"
     releases.first.asin.should == "B00C1GBOU6"
   end
+
+  it "gets a list of matching releases for a barcode" do
+    release = MusicBrainz::Release.find_by_barcode("602498678282")
+    puts release.inspect
+    #releases.length.should == 1
+    release.id.should == "45555e28-fa6c-4798-854d-898fac0f458d"
+    release.title.should == "How to Dismantle an Atomic Bomb"
+    release.asin.should == "B0002W2KRM"
+    #releases.first.asin.should == "B0002W2KRM"
+  end
 end

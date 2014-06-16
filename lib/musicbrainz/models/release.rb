@@ -33,6 +33,19 @@ module MusicBrainz
           create_models: :release
         })
       end
+
+      def search(barcode, type=nil)
+        if type
+          super({barcode: barcode, type: type})
+        else
+          super({barcode: barcode})
+        end
+      end
+
+      def find_by_barcode(barcode)
+        matches = search(barcode)
+        matches.empty? ? nil : find(matches.first[:id])
+      end
     end
   end
 end

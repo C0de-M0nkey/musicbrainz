@@ -16,6 +16,7 @@ module MusicBrainz
       raise Exception.new("You need to run MusicBrainz.configure before querying") if MusicBrainz.config.nil?
 
       url = build_url(resource, query)
+
       response = get_contents(url)
 
       return nil if response[:status] != 200

@@ -44,7 +44,7 @@ describe MusicBrainz::Artist do
     artist.type.should == "Group"
     artist.name.should == "Kasabian"
     artist.country.should == "GB"
-    artist.date_begin.year.should == 1999
+    artist.date_begin.year.should == 1997
   end
 
   it "gets correct artist's release groups" do
